@@ -5,7 +5,6 @@
 ## Welcome to the AirBnB clone project! (The Holberton B&B)
 
 Before starting, please read the [AirBnB concept page](https://intranet.hbtn.io/concepts/74) and watch [this video](https://www.youtube.com/watch?v=jeJwRB33YNg&feature=youtu.be) from I[saac Wong, Cohort #5](https://twitter.com/KYIsaacWong), showing what the Console should look like when you are complete with this project.
-![Video tutorial](https://www.youtube.com/watch?time_continue=31&v=E12Xc3H2xqo&feature=emb_logo)
 
 **First step: Write a command interpreter to manage your AirBnB objects.**
 This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration…
@@ -105,16 +104,17 @@ Do you remember the Shell? It’s exactly the same but limited to a specific use
 * Your file organization in the tests folder should be the same as your project
 * e.g., For `models/base_model.py`, unit tests must be in: `tests/test_models/test_base_model.py`
 * e.g., For `models/user.py`, unit tests must be in: `tests/test_models/test_user.py`
-* All your tests should be executed by using this command:` python3 -m unittest discover tests`
+* All your tests should be executed by using this command:`python3 -m unittest discover tests`
 * You can also test file by file by using this command: `python3 -m unittest tests/test_models/test_base_model.py`
 * All your modules should have a documentation `(python3 -c 'print(__import__("my_module").__doc__)')`
-* All your classes should have a documentation` (python3 -c 'print(__import__("my_module").MyClass.__doc__)')`
+* All your classes should have a documentation`(python3 -c 'print(__import__("my_module").MyClass.__doc__)')`
 * All your functions (inside and outside a class) should have a documentation `(python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')`
 * We strongly encourage you to work together on test cases, so that you don’t miss any edge case
 
 ## More Info
 
 ### Execution
+
 Your shell should work like this in interactive mode:
 
 ```bash
@@ -125,12 +125,14 @@ Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
 
-(hbnb) 
-(hbnb) 
+(hbnb)
+(hbnb)
 (hbnb) quit
 $
 ```
+
 But also in non-interactive mode: (like the Shell project in C)
+
 ```bash
 $ echo "help" | ./console.py
 (hbnb)
@@ -138,7 +140,7 @@ $ echo "help" | ./console.py
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
-(hbnb) 
+(hbnb)
 $
 $ cat test_help
 help
@@ -149,11 +151,14 @@ $ cat test_help | ./console.py
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
-(hbnb) 
+(hbnb)
 $
 ```
+
 ![ScreenShot](https://github.com/joer9514/AirBnB_clone/blob/master/.img/Diagram_.png)
 
 ## Authors
-**Jose Espinosa** - [Twiter](https://twitter.com/joer9514) - [GitHub](https://github.com/joer9514)
-**Andres Rodriguez** - [Twiter](https://twitter.com/anhujuju) - [GitHub](https://github.com/anhujuju)
+
+* **Jose Espinosa** - [Twiter](https://twitter.com/joer9514) - [GitHub](https://github.com/joer9514)
+
+* **Andres Rodriguez** - [Twiter](https://twitter.com/anhujuju) - [GitHub](https://github.com/anhujuju)
