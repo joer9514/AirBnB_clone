@@ -1,4 +1,4 @@
-![ScreenShot](https://github.com/joer9514/AirBnB_clone/blob/master/.img/AirBnB.png)
+![ScreenShot](https://github.com/joer9514/AirBnB_clone/blob/master/.img/AirBnB_.png)
 
 # Background Context
 
@@ -152,8 +152,8 @@ EOF  help  quit
 (hbnb) 
 $
 ```
-![ScreenShot](https://github.com/joer9514/AirBnB_clone/blob/master/.img/Diagram.png)
+![ScreenShot](https://github.com/joer9514/AirBnB_clone/blob/master/.img/Diagram_.png)
 
 ## Authors
-**Jose Espinosa** - [Twiter](https://twitter.com/joer9514) [GitHub](https://github.com/joer9514)
-**Andres Rodriguez** - [Twiter](https://twitter.com/anhujuju) [GitHub](https://github.com/anhujuju)
+**Jose Espinosa** - [Twiter](https://twitter.com/joer9514) - [GitHub](https://github.com/joer9514)
+**Andres Rodriguez** - [Twiter](https://twitter.com/anhujuju) - [GitHub](https://github.com/anhujuju)
