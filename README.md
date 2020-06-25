@@ -1,2 +1,4 @@
 # AirBnB_clone
-The AirBnB_clone project of Holberton School
+
+
+![ScreenShot](https://github.com/joer9514/AirBnB_clone/master/img/AirBnB.png)
