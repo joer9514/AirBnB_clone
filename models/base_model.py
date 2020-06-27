@@ -8,4 +8,7 @@ from datetime import datetime
 
 class BaseModel:
     """The base model"""
-    pass
+
+    def __init__(self, *args, **kwargs):
+        """The constructor method"""
+        pass

@@ -15,11 +15,11 @@ class HBNBCommand(cmd.Cmd):
                "City",
                "Review"}
 
-    def do_EOF(self, arg):
+    def do_EOF(self, inputline):
         """Exit console"""
         return True
 
-    def do_quit(self, arg):
+    def do_quit(self, inputline):
         """Quit command to exit console"""
         return True
 
