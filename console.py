@@ -27,12 +27,12 @@ class HBNBCommand(cmd.Cmd):
                "Review"}
     
 
-    def do_EOF(self, inputline):
-        """Exit console"""
+    def do_quit(self, line):
+        """Quit command to exit the program"""
         return True
 
-    def do_quit(self, inputline):
-        """Quit command to exit console"""
+    def do_EOF(self, line):
+        """Executes the EOF (Ctrl -D/ Ctrl-Z) commands on console"""
         return True
     err_list = ["** class name missing **", "** class doesn't exist **"]
 
@@ -45,7 +45,7 @@ class HBNBCommand(cmd.Cmd):
             if key == n:
                 print(item)
 
-    def _create(self, arg):
+    def do_create(self, arg):
         """Used to create a new instance of BaseModel and saves
         the instance to a JSON file"""
         if arg == "":
@@ -56,7 +56,7 @@ class HBNBCommand(cmd.Cmd):
             arg = eval(arg)()
             arg.save()
             print(arg.id)
-
+            
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
