@@ -19,7 +19,7 @@ class File_storage:
 
     def all(self):
         """Return dictionary"""
-        return File_storage.__objects
+        return self.__objects
 
     def new(self, obj):
         """Return __objects with obj key"""
