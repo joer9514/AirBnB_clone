@@ -34,15 +34,10 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, line):
         """Executes the EOF (Ctrl -D/ Ctrl-Z) commands on console"""
         return True
-<<<<<<< HEAD
-    err_list =     err_list = ["** class name missing **", "** class doesn't exist **",
-                    "** instance id missing **", "** no instance found **","** attribute name missing **",]
-=======
     err_list = err_list = ["** class name missing **",
                            "** class doesn't exist **",
                            "** instance id missing **",
                            "** no instance found **", ]
->>>>>>> 7b8a65677ca1893b04f5572f7d39738fd90caaa4
 
     def err_msg(self, n):
         """Return error messages"""
@@ -124,7 +119,6 @@ class HBNBCommand(cmd.Cmd):
                     if object['__class__'] == arg[0]:
                         print(isinstance_obj)
 
-<<<<<<< HEAD
     def do_update(self, line):
         """Updates an instance based on the class name and id"""
         data_dump = models.storage.all()
@@ -149,8 +143,6 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print(self.err_msg[3])
 
-=======
->>>>>>> 7b8a65677ca1893b04f5572f7d39738fd90caaa4
-
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
+    S
