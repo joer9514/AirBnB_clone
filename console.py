@@ -15,17 +15,18 @@ from models import storage
 from models import review
 from models.user import User
 
+group = ["user",
+         "BaseModel",
+         "place",
+         "State",
+         "Amenity",
+         "City",
+         "Review"]
+
 
 class HBNBCommand(cmd.Cmd):
     """HBNB"""
     prompt = ' start (hbnb) '
-    group = {"user",
-             "BaseModel",
-             "place",
-             "State",
-             "Amenity",
-             "City",
-             "Review"}
 
     def do_quit(self, line):
         """Quit command to exit the program"""
@@ -56,7 +57,7 @@ class HBNBCommand(cmd.Cmd):
         the instance to a JSON file"""
         if arg == "":
             print(self.err_list[0])
-        elif arg not in self.group:
+        elif arg not in group:
             print(self.err_list[1])
         else:
             arg = eval(arg)()
@@ -68,7 +69,7 @@ class HBNBCommand(cmd.Cmd):
         arg = line.split()
         if line == "":
             print(self.err_list[0])
-        elif arg[0] not in self.group:
+        elif arg[0] not in group:
             print(self.err_list[1])
         elif len(arg) < 2:
             print(self.err_list[2])
@@ -86,7 +87,7 @@ class HBNBCommand(cmd.Cmd):
         arg = line.split()
         if line == "":
             print(self.err_list[0])
-        elif arg[0] not in self.group:
+        elif arg[0] not in group:
             print(self.err_list[1])
         elif len(arg) < 2:
             print(self.err_list[2])
@@ -111,7 +112,7 @@ class HBNBCommand(cmd.Cmd):
                 print(isinstance_obj)
         else:
             arg = line.split()
-            if arg[0] not in self.group:
+            if arg[0] not in group:
                 print(self.err_list[1])
             else:
                 for isinstance_key, isinstance_obj in data_dump.items():
@@ -121,27 +122,34 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, line):
         """Updates an instance based on the class name and id"""
-        data_dump = models.storage.all()
-        arg = self.splitter(line)
-
-        if not line:
-            print(self.err_msg[0])
-        elif arg[0] not in self.group:
-            print(self.err_msg[1])
-        elif len(arg) < 2:
-            print(self.err_msg[2])
-        else:
-            key = "{}.{}".format(arg[0], arg[1])
-            if key in data_dump:
-                if len(arg) < 3:
-                    print(self.err_msg[4])
-                elif len(arg) < 4:
-                    print(self.err_msg[5])
-                else:
-                    object = data_dump[key]
-                    setattr(object, arg[2], arg[3])
-            else:
-                print(self.err_msg[3])
+        words = line.split(' ')
+        if len(line) == 0:
+            print("** class name missing **")
+            return
+        elif words[0] not in group:
+            print("** class doesn't exist **")
+            return
+        elif len(words) == 1:
+            print("** instance id missing **")
+            return
+        if len(words) == 3:
+            print("** value missing **")
+            return
+        s1 = words[0] + '.' + words[1]
+        all_objs = storage.all()
+        for key, value in all_objs.items():
+            if s1 in key:
+                if len(words) == 2:
+                    print("** attribute name missing **")
+                    return
+                if words[3][0] == "\"" and words[3][-1] == "\"":
+                    setattr(value, words[2], words[3][1:-1])
+                    storage.save()
+                    return
+                setattr(value, words[2], words[3])
+                storage.save()
+                return
+        print("** no instance found **")
 
 
 if __name__ == '__main__':
