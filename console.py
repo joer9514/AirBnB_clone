@@ -143,6 +143,6 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print(self.err_msg[3])
 
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
-    
