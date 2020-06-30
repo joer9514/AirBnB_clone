@@ -16,17 +16,16 @@ from models import review
 from models.user import User
 
 
-
 class HBNBCommand(cmd.Cmd):
     """HBNB"""
     prompt = ' start (hbnb) '
     group = {"user",
-               "BaseModel",
-               "place",
-               "State",
-               "Amenity",
-               "City",
-               "Review"}
+             "BaseModel",
+             "place",
+             "State",
+             "Amenity",
+             "City",
+             "Review"}
 
     def do_quit(self, line):
         """Quit command to exit the program"""
@@ -35,8 +34,10 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, line):
         """Executes the EOF (Ctrl -D/ Ctrl-Z) commands on console"""
         return True
-    err_list =     err_list = ["** class name missing **", "** class doesn't exist **",
-                    "** instance id missing **", "** no instance found **",]
+    err_list = err_list = ["** class name missing **",
+                           "** class doesn't exist **",
+                           "** instance id missing **",
+                           "** no instance found **", ]
 
     def err_msg(self, n):
         """Return error messages"""
@@ -60,8 +61,8 @@ class HBNBCommand(cmd.Cmd):
             arg = eval(arg)()
             arg.save()
             print(arg.id)
-    
-    def do_show(self,line):
+
+    def do_show(self, line):
         """Print string representation of instance"""
         arg = line.split()
         if line == "":
@@ -99,7 +100,10 @@ class HBNBCommand(cmd.Cmd):
             print(self.err_list[3])
 
     def do_all(self, line):
-        """Prints all string representation of all instances based or not on the class name"""
+        """
+        Prints all string representation of all
+        instances based or not on the class name
+        """
         data_dump = models.storage.all()
         if line is "":
             for isinstance_key, isinstance_obj in data_dump.items():
@@ -113,7 +117,7 @@ class HBNBCommand(cmd.Cmd):
                     object = isinstance_obj.to_dict()
                     if object['__class__'] == arg[0]:
                         print(isinstance_obj)
-                        
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

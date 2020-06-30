@@ -11,6 +11,7 @@ from models.review import Review
 from models.user import User
 from models.state import State
 
+
 class File_storage:
     """Private class attributes"""
     __file_path = 'file.json'
@@ -22,7 +23,7 @@ class File_storage:
 
     def new(self, obj):
         """Return __objects with obj key"""
-        key = '{}.{}'.format(obj.__class__.__name__,obj.id)
+        key = '{}.{}'.format(obj.__class__.__name__, obj.id)
         self.__objects[key] = obj
 
     def save(self):
@@ -31,7 +32,7 @@ class File_storage:
         new_dict = {}
         for key, item in self.__objects.items():
             new_dict[key] = item.to_dict()
-        with open (save_file, "w", encoding='utf-8') as new_file:
+        with open(save_file, "w", encoding='utf-8') as new_file:
             json.dump(new_dict, new_file)
 
     def reload(self):
@@ -39,7 +40,7 @@ class File_storage:
         reload_dict = {}
         try:
             with open(File_storage.__file_path, mode="r") as a_file:
-                reload_dict=(json.load(a_file))
+                reload_dict = (json.load(a_file))
                 for key, value in reload_dict.items():
                     obj = eval(value['__class__'])(**value)
                     self.__objects[key] = obj
