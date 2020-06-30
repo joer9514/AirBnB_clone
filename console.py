@@ -128,7 +128,7 @@ class HBNBCommand(cmd.Cmd):
             print(self.err_msg[0])
         elif arg[0] not in self.group:
             print(self.err_msg[1])
-        elif len(arg) < 2 
+        elif len(arg) < 2:
             print(self.err_msg[2])
         else:
             key = "{}.{}".format(arg[0], arg[1])
