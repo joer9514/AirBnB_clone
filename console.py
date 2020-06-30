@@ -78,8 +78,42 @@ class HBNBCommand(cmd.Cmd):
                 print(object)
             except KeyError:
                 print(self.err_list[3])
-      
-            
+
+    def do_destroy(self, line):
+        """Deletes an instance based on the class name and id"""
+        arg = line.split()
+        if line == "":
+            print(self.err_list[0])
+        elif arg[0] not in self.group:
+            print(self.err_list[1])
+        elif len(arg) < 2:
+            print(self.err_list[2])
+        else:
+            data_dump = models.storage.all()
+            key = "{}.{}".format(arg[0], arg[1])
+            if key in data_dump:
+                del data_dump[key]
+                storage._File_storage__objects = data_dump
+                storage.save()
+                return
+            print(self.err_list[3])
+
+    def do_all(self, line):
+        """Prints all string representation of all instances based or not on the class name"""
+        data_dump = models.storage.all()
+        if line is "":
+            for isinstance_key, isinstance_obj in data_dump.items():
+                print(isinstance_obj)
+        else:
+            arg = line.split()
+            if arg[0] not in self.group:
+                print(self.err_list[1])
+            else:
+                for isinstance_key, isinstance_obj in data_dump.items():
+                    object = isinstance_obj.to_dict()
+                    if object['__class__'] == arg[0]:
+                        print(isinstance_obj)
+                        
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
