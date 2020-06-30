@@ -16,17 +16,16 @@ from models import review
 from models.user import User
 
 
-
 class HBNBCommand(cmd.Cmd):
     """HBNB"""
     prompt = ' start (hbnb) '
     group = {"user",
-               "BaseModel",
-               "place",
-               "State",
-               "Amenity",
-               "City",
-               "Review"}
+             "BaseModel",
+             "place",
+             "State",
+             "Amenity",
+             "City",
+             "Review"}
 
     def do_quit(self, line):
         """Quit command to exit the program"""
@@ -35,8 +34,15 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, line):
         """Executes the EOF (Ctrl -D/ Ctrl-Z) commands on console"""
         return True
+<<<<<<< HEAD
     err_list =     err_list = ["** class name missing **", "** class doesn't exist **",
                     "** instance id missing **", "** no instance found **","** attribute name missing **",]
+=======
+    err_list = err_list = ["** class name missing **",
+                           "** class doesn't exist **",
+                           "** instance id missing **",
+                           "** no instance found **", ]
+>>>>>>> 7b8a65677ca1893b04f5572f7d39738fd90caaa4
 
     def err_msg(self, n):
         """Return error messages"""
@@ -61,8 +67,8 @@ class HBNBCommand(cmd.Cmd):
             arg = eval(arg)()
             arg.save()
             print(arg.id)
-    
-    def do_show(self,line):
+
+    def do_show(self, line):
         """Print string representation of instance"""
         arg = line.split()
         if line == "":
@@ -100,7 +106,10 @@ class HBNBCommand(cmd.Cmd):
             print(self.err_list[3])
 
     def do_all(self, line):
-        """Prints all string representation of all instances based or not on the class name"""
+        """
+        Prints all string representation of all
+        instances based or not on the class name
+        """
         data_dump = models.storage.all()
         if line is "":
             for isinstance_key, isinstance_obj in data_dump.items():
@@ -115,6 +124,7 @@ class HBNBCommand(cmd.Cmd):
                     if object['__class__'] == arg[0]:
                         print(isinstance_obj)
 
+<<<<<<< HEAD
     def do_update(self, line):
         """Updates an instance based on the class name and id"""
         data_dump = models.storage.all()
@@ -139,6 +149,8 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print(self.err_msg[3])
 
+=======
+>>>>>>> 7b8a65677ca1893b04f5572f7d39738fd90caaa4
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

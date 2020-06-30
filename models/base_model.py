@@ -6,9 +6,11 @@ import uuid
 import models
 from datetime import datetime
 
+
 class BaseModel:
-     """Constructor"""
-     def __init__(self, *args, **kwargs):
+    """Constructor"""
+
+    def __init__(self, *args, **kwargs):
         if args is not None and len(args) > 0:
             pass
         if kwargs:
@@ -22,18 +24,21 @@ class BaseModel:
             self.created_at = self.updated_at = datetime.now()
             models.storage.new(self)
 
-     def __str__(self):
+    def __str__(self):
         """String Literal"""
         a, b, c = self.__class__.__name__, self.id, self.__dict__
         return("[{}] ({}) {}".format(a, b, c))
 
-     def save(self):
-        """updates the public instance attribute updated_at with the current datetime"""
+    def save(self):
+        """
+        updates the public instance attribute
+        updated_at with the current datetime
+        """
         self.updated_at = datetime.now()
         models.storage.new(self)
         models.storage.save()
 
-     def to_dict(self):
+    def to_dict(self):
         """Returns a dictionay"""
         my_dict = {}
         for key, item in self.__dict__.items():
