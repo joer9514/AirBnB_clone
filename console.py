@@ -26,7 +26,7 @@ group = ["user",
 
 class HBNBCommand(cmd.Cmd):
     """HBNB"""
-    prompt = ' start (hbnb) '
+    prompt = '(hbnb) '
 
     def do_quit(self, line):
         """Quit command to exit the program"""
